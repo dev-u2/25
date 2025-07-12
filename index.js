@@ -129,7 +129,8 @@ function launchBotInstance() {
 }
 
 // startup info
-console.log(chalk.red.bold(`
+function printSystemInfo() {
+    console.log(chalk.red.bold(`
 ╔══════════════════════════════════════════════════╗
 ║               SYSTEM ENVIRONMENT                 ║
 ╚══════════════════════════════════════════════════╝
@@ -142,13 +143,23 @@ console.log(chalk.red.bold(`
   - Free RAM    : ${chalk.yellow.bold(`${(os.freemem() / 1024 / 1024).toFixed(2)} MB`)}
   - Message     : ${chalk.yellow.bold("Enjoy the source code")}
 `))
-
-console.log(chalk.yellow.bold("[=============== STARTING BOT INSTANCE ===============]"))
-
-try {
-    launchBotInstance()
-    printStartupBanner()
-} catch (err) {
-    console.error(chalk.red.bold("[ BOOT FAILURE ] Initialization error:"), err)
-    logToFile("boot_failure", err)
 }
+
+function startApplication() {
+    printSystemInfo()
+    console.log(chalk.yellow.bold("[=============== STARTING BOT INSTANCE ===============]"))
+    
+    setTimeout(() => {
+        try {
+            launchBotInstance()
+            setTimeout(() => {
+                printStartupBanner()
+            }, 1000)
+        } catch (err) {
+            console.error(chalk.red.bold("[ BOOT FAILURE ] Initialization error:"), err)
+            logToFile("boot_failure", err)
+        }
+    }, 500)
+}
+
+startApplication()
