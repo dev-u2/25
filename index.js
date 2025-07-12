@@ -53,12 +53,12 @@ function launchBotInstance() {
             if (exitCode !== 0) {
                 console.error(chalk.red.bold(`[ CRASH ] Bot terminated unexpectedly! Exit code: ${exitCode}`))
                 restartCount++
-                
+
                 if (restartCount >= MAX_RESTARTS) {
                     console.error(chalk.red.bold(`[ SYSTEM ] Maximum restart attempts (${MAX_RESTARTS}) reached. Stopping bot.`))
                     process.exit(1)
                 }
-                
+
                 console.log(chalk.yellow.bold(`[ SYSTEM ] Restart attempt ${restartCount}/${MAX_RESTARTS} in 5 seconds...`))
                 setTimeout(() => {
                     launchBotInstance()
@@ -148,7 +148,7 @@ function printSystemInfo() {
 function startApplication() {
     printSystemInfo()
     console.log(chalk.yellow.bold("[=============== STARTING BOT INSTANCE ===============]"))
-    
+
     setTimeout(() => {
         try {
             launchBotInstance()
