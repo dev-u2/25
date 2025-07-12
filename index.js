@@ -154,7 +154,7 @@ function startApplication() {
             launchBotInstance()
             setTimeout(() => {
                 printStartupBanner()
-            }, 1000)
+            }, 3000)
         } catch (err) {
             console.error(chalk.red.bold("[ BOOT FAILURE ] Initialization error:"), err)
             logToFile("boot_failure", err)
