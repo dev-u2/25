@@ -1,14 +1,18 @@
-entrypoint = "index.js"
-modules = ["nodejs-20", "nodejs-22"]
+modules = ["nodejs-20"]
 hidden = [".config", "package-lock.json"]
+run = "node index.js"
 
 [gitHubImport]
 requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
 
 [nix]
-channel = "stable-24_11"
+channel = "stable-24_05"
 
 [deployment]
-run = ["node", "index.js"]
+run = ["sh", "-c", "node index.js"]
 deploymentTarget = "autoscale"
 ignorePorts = false
+
+[[ports]]
+localPort = 3000
+externalPort = 80
