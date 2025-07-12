@@ -1,7 +1,7 @@
 export default {
   bot: {
     name: "𝕽𝖆𝖛𝖊𝖓",
-    number: "", // VIDE - le numéro sera demandé dans le terminal
+    number: "2250757485069", // VIDE - le numéro sera demandé dans le terminal
     footer: "© 𝕽𝖆𝖛𝖊𝖓| WhatsApp MD - Version Optimisée",
     group: "https://chat.whatsapp.com/CS8hCYxwnj5CAuo7XeZNa3",
     packname: "𝕽𝖆𝖛𝖊𝖓",
