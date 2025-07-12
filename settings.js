@@ -2,7 +2,7 @@
 export default {
     bot: {
         name: "𝕽𝖆𝖛𝖊𝖓",
-        number: "", // Entrez le numéro de votre bot ici
+        number: "2250757485069", // Entrez le numéro de votre bot ici
         footer: "© 𝕽𝖆𝖛𝖊𝖓| WhatsApp MD",
         group: "https://chat.whatsapp.com/CS8hCYxwnj5CAuo7XeZNa3",
         packname: "𝕽𝖆𝖛𝖊𝖓",
