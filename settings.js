@@ -1,7 +1,8 @@
+
 export default {
     bot: {
         name: "𝕽𝖆𝖛𝖊𝖓",
-        number: "", // enter your bot number
+        number: "", // enter your bot number here
         footer: "© 𝕽𝖆𝖛𝖊𝖓| WhatsApp MD",
         group: "https://chat.whatsapp.com/CS8hCYxwnj5CAuo7XeZNa3"
     },
@@ -9,8 +10,8 @@ export default {
         packname: "𝕽𝖆𝖛𝖊𝖓",
         author: "@hhhisoka-bot"
     },
-    creator: "2250104610403@s.whatsapp.net",
-    owner: ["0104610403", "2250101676111"],
+    creator: "YOUR_NUMBER@s.whatsapp.net", // Replace with your number
+    owner: ["YOUR_NUMBER"], // Replace with your number without @s.whatsapp.net
     thumb: {
         reply: "https://i.pinimg.com/originals/20/15/4a/20154a72a9b841345cb3f7ad8ba8683a.jpg",
         menu: ""
