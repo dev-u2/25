@@ -17,6 +17,9 @@ const ER_LOG = path.join(__dirname, "lib/error.log")
 if (!fs.existsSync(ER_LOG)) fs.writeFileSync(ER_LOG, "")
 
 const unhandledRejections = new Map()
+let restartCount = 0
+const MAX_RESTARTS = 5
+const RESTART_WINDOW = 60000 // 1 minute
 
 const logToFile = (type, err) => {
     const logMsg = `[${new Date().toISOString()}] ${type}: ${err.stack || err}\n`
@@ -49,7 +52,19 @@ function launchBotInstance() {
         .on("exit", (exitCode) => {
             if (exitCode !== 0) {
                 console.error(chalk.red.bold(`[ CRASH ] Bot terminated unexpectedly! Exit code: ${exitCode}`))
-                setTimeout(launchBotInstance, 1000)
+                restartCount++
+                
+                if (restartCount >= MAX_RESTARTS) {
+                    console.error(chalk.red.bold(`[ SYSTEM ] Maximum restart attempts (${MAX_RESTARTS}) reached. Stopping bot.`))
+                    process.exit(1)
+                }
+                
+                console.log(chalk.yellow.bold(`[ SYSTEM ] Restart attempt ${restartCount}/${MAX_RESTARTS} in 5 seconds...`))
+                setTimeout(() => {
+                    launchBotInstance()
+                    // Reset counter after successful restart window
+                    setTimeout(() => { restartCount = 0 }, RESTART_WINDOW)
+                }, 5000)
             } else {
                 console.log(chalk.green.bold("[ SYSTEM ] Bot shutdown gracefully"))
                 process.exit(0)
