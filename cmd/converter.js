@@ -4,7 +4,7 @@ import FormData from "form-data"
 import fetch from "node-fetch"
 import axios from "axios"
 import BodyForm from "form-data"
-import { toAudio, toPTT, toVideo } from "../../lib/exif.js"
+import { toAudio, toPTT, toVideo } from "../lib/exif.js"
 import { exec } from "child_process"
 import { sendWithNewsletter } from "../lib/newsletter-helper.js"
 const getRandom = (ext) => {
