@@ -108,7 +108,7 @@ export default {
 
   github: "https://github.com/hhhisoka-bot",
   instagram: "https://instagram.com/sadp_sy",
-  group: "https://chat.whatsapp.com/GBN7EQJX5XV7QeJVdt9HNy",
+  group: "", ////ajoute ton lien 
 
   mess: {
     success: "[🃏] Succès",
